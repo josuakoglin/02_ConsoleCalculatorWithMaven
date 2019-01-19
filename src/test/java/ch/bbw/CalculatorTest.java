@@ -60,13 +60,49 @@ public class CalculatorTest {
   //====================================================================================================================
 
 
-
-
-
+  //Subtraction-method tests
+  //====================================================================================================================
   @Test
   public void testSubtractionTwoPositiveIsOk() {
-    assertTrue(testee.subtraction(25, 10) == 15);
+    assertEquals(15, testee.subtraction(25, 10));
   }
+
+  @Test
+  public void testSubtractionTwoNegativeIsOK() {
+    assertEquals(-10, testee.subtraction(-30, -20));
+  }
+
+  @Test
+  public void testSubtractionOneNegativeOnePositiveIsOK() {
+    assertEquals(22, testee.subtraction(20, -2));
+  }
+
+  @Test
+  public void testSubtractionNullandPositiveNumberIsOk() {
+    assertEquals(30, testee.subtraction(30, 0));
+  }
+
+  @Test
+  public void testSubtractionFromIntegerMinValueIsOk() {
+    assertEquals(Integer.MIN_VALUE, testee.subtraction(Integer.MIN_VALUE + 10, 10));
+  }
+
+  @Test
+  public void testSubtractionFirstNumberIsNullSecondNumberIsPositiveResultIsNegative() {
+    assertEquals(-30, testee.subtraction(0, 30));
+  }
+
+  @Test(expected = ArithmeticException.class)
+  public void testSubtractionEinsNegativEinsPositivOverflowHandlingThrowsException() {
+    assertTrue(testee.subtraction(Integer.MIN_VALUE, 5) != 0);
+  }
+
+  @Test
+  public void testSubtractionFirstNumberIsPositiveSecondNumberIsNullResultIsLikeFirstNumber() {
+    assertEquals(25, testee.subtraction(25, 0));
+  }
+  //====================================================================================================================
+
 
   @Test
   public void testDivisionTwoPositiveIsOk() throws ArithmeticException {
