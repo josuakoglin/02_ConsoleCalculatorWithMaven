@@ -19,6 +19,10 @@ public class Calculator {
   }
 
   public int division(int value1, int value2) {
+    long value = (long) value1 / (long) value2;
+    if ((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
+      throw new java.lang.ArithmeticException();
+    }
     return value1 / value2;
   }
 
