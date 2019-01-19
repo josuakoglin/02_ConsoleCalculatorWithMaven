@@ -1,5 +1,6 @@
 package ch.bbw;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -14,10 +15,53 @@ public class CalculatorTest {
     testee = new Calculator();
   }
 
+
+  //Addition-method tests
+  //====================================================================================================================
   @Test
-  public void testSumTwoPositiveIsOk() {
-    assertTrue(testee.sum(10, 25) == 35);
+  public void testAdditionTwoPositiveIsOk() {
+    assertEquals(35, testee.addition(10, 25));
   }
+
+  @Test
+  public void testAdditionTwoNegativeIsOK() {
+    assertEquals(-20, testee.addition(-10, -10));
+  }
+
+  @Test
+  public void testAdditionOneNegativeOnePositiveIsOk() {
+    assertEquals(-4, testee.addition((-6), 2));
+  }
+
+  @Test(expected = java.lang.ArithmeticException.class)
+  public void testAdditionTwoPositiveWithOverflowThrowsException() {
+    assertTrue(testee.addition(Integer.MAX_VALUE, 15) != 0);
+  }
+
+  @Test(expected = java.lang.ArithmeticException.class)
+  public void testAdditionTwoNegativeWithOverflowThrowsException() {
+    assertTrue(testee.addition(Integer.MIN_VALUE, -60) != 0);
+  }
+
+  @Test
+  public void testAdditionResultIsNullOk() {
+    assertEquals(0, testee.addition(-45, 45));
+  }
+
+  @Test
+  public void testAdditionAddNullWithNumberIsOk() {
+    assertEquals(30, testee.addition(0, 30));
+  }
+
+  @Test
+  public void testAdditionLimitFromMaxIntegerIsOk() {
+    assertEquals(Integer.MAX_VALUE, testee.addition(Integer.MAX_VALUE - 10, 10));
+  }
+  //====================================================================================================================
+
+
+
+
 
   @Test
   public void testSubtractionTwoPositiveIsOk() {
