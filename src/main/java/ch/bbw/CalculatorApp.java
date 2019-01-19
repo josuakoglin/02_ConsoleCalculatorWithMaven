@@ -14,7 +14,7 @@ public class CalculatorApp {
 
     valueA = 10;
     valueB = 20;
-    System.out.println("Summe " + valueA + " + " + valueB + " = " + calculator.sum(10, 20));
+    System.out.println("Summe " + valueA + " + " + valueB + " = " + calculator.addition(10, 20));
   }
 
 
