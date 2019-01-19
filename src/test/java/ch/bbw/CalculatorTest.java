@@ -104,15 +104,51 @@ public class CalculatorTest {
   //====================================================================================================================
 
 
-  @Test
-  public void testDivisionTwoPositiveIsOk() throws ArithmeticException {
-    assertTrue(testee.division(12, 6) == 2);
-  }
-
+  //Division-method tests
+  //====================================================================================================================
   @Test(expected = ArithmeticException.class)
   public void testDivisionByZeroThrowsException() {
-    testee.division(15, 0);
+    assertTrue(testee.division(40, 0) != 0);
   }
+
+  @Test
+  public void testDivisionResultIsRounded() {
+    assertTrue(testee.division(10, 4) == 2);
+  }
+
+  @Test
+  public void testDivisionResultIsNullIsOk() {
+    assertEquals(0, testee.division(0, 50));
+  }
+
+  @Test
+  public void testDivisionOnePositiveOneNegativeIsOk() {
+    assertEquals(-10, testee.division(30, -3));
+  }
+
+  @Test
+  public void testDivisionTwoPositiveIsOk() {
+    assertEquals(5, testee.division(20, 4));
+  }
+
+  @Test
+  public void testDivisionNegativeResultIsRounded() {
+    assertEquals(-20, testee.division(40, -2));
+  }
+
+  @Test
+  public void testDivisionFirstNumberIsNegativeSecondNumberPositiveIsOk() {
+    assertEquals(-4, testee.division(-12, 3));
+  }
+
+  @Test
+  public void testDivisionTwoNegativeIsOk() {
+    assertEquals(10, testee.division(-20, -2));
+  }
+  //====================================================================================================================
+
+
+
 
   @Test
   public void testSquarerootIsOK() {
