@@ -147,12 +147,45 @@ public class CalculatorTest {
   }
   //====================================================================================================================
 
-
-
-
   @Test
   public void testSquarerootIsOK() {
     assertTrue(testee.sqareroot(361) == 19);
   }
+
+
+  //ConvertNumberToBinary-method tests
+  //====================================================================================================================
+  @Test
+  public void testBinaryWithPositiveNumberIsOK() {
+    assertEquals("1111", testee.convertNumberToBinary(15));
+  }
+
+  @Test
+  public void testBinaryWithIntegerMaxValueIsOk() {
+    assertEquals(Integer.toBinaryString(Integer.MAX_VALUE), testee.convertNumberToBinary(Integer.MAX_VALUE));
+  }
+
+  @Test
+  public void testBinaryWithZeroIsOk() {
+    assertEquals("0", testee.convertNumberToBinary(0));
+  }
+
+  @Test(expected = ArithmeticException.class)
+  public void testBinaryWithIntegerMinValueOverflowHandlingThrowsException() {
+    assertEquals("0", testee.convertNumberToBinary(Integer.MIN_VALUE));
+  }
+
+
+
+  @Test(expected = ArithmeticException.class)
+  public void testBinaryWithNegativeNumberOverflowHandlingThrowsException() {
+    assertEquals("0", testee.convertNumberToBinary(-10));
+  }
+  //====================================================================================================================
+
+
+
+
+
 
 }

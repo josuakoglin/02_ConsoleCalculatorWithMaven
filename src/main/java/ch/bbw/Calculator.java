@@ -45,6 +45,14 @@ public class Calculator {
     return value1 * value1;
   }
 
+  public String convertNumberToBinary(int value) {
+    if (value < 0) {
+      throw new ArithmeticException();
+    }
+    return Integer.toBinaryString(value);
+  }
+
+
 }
 
 
