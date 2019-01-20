@@ -32,7 +32,7 @@ public class CalculatorVisibilityTest {
   }
 
   @Test
-  public void testMultiplicationFirstNumberIsNegativeSecondNumberPositiveIsOk() {
+  public void testMultiplicationFirstNumberIsNegativeSecondNumberIsPositiveIsOk() {
     assertEquals(-36, testee.multiplication(-12, 3));
   }
 
