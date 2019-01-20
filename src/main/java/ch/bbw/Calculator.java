@@ -2,15 +2,27 @@ package ch.bbw;
 
 public class Calculator {
 
-  public int sum(int summand1, int summand2) {
+  public int addition(int summand1, int summand2) throws java.lang.ArithmeticException {
+    long value = (long) summand1 + (long) summand2;
+    if ((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
+      throw new java.lang.ArithmeticException();
+    }
     return summand1 + summand2;
   }
 
   public int subtraction(int value1, int value2) {
+    long value = (long) value1 - (long) value2;
+    if ((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
+      throw new java.lang.ArithmeticException();
+    }
     return value1 - value2;
   }
 
   public int division(int value1, int value2) {
+    long value = (long) value1 / (long) value2;
+    if ((value > Integer.MAX_VALUE) || (value < Integer.MIN_VALUE)) {
+      throw new java.lang.ArithmeticException();
+    }
     return value1 / value2;
   }
 
@@ -29,9 +41,17 @@ public class Calculator {
   // Die untenstehende Methode kann man nur mit "Reflection" testen.
   // Der Grund dafür ist, dass die Methode private ist und man sie nur innerhalb der Class verwenden kann.
   // Somit ist es nicht möglich Unit-Tests für diese Methode zu schreiben, weil der Zugriff auf die Methode unmöglich ist.
-  private int square (int value1) {
+  private int square(int value1) {
     return value1 * value1;
   }
+
+  public String convertNumberToBinary(int value) {
+    if (value < 0) {
+      throw new ArithmeticException();
+    }
+    return Integer.toBinaryString(value);
+  }
+
 
 }
 
