@@ -93,7 +93,7 @@ public class CalculatorTest {
   }
 
   @Test(expected = ArithmeticException.class)
-  public void testSubtractionEinsNegativEinsPositivOverflowHandlingThrowsException() {
+  public void testSubtractionOneNegativeOnePositiveOverflowHandlingThrowsException() {
     assertTrue(testee.subtraction(Integer.MIN_VALUE, 5) != 0);
   }
 
