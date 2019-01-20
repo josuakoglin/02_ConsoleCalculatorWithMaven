@@ -34,7 +34,7 @@ public class Calculator {
 
   // Die Folgende Methode kann man normal testen, da kein Access Modifier in Java den einen ähnlichen Effekt wie Public hat.
   // Der Unterschied ist, dass Public zusätzlich noch für Subclasses in einem anderen Package sichtbar ist und no modifier nicht..
-  double sqareroot(double value1) {
+  double squareroot(double value1) {
     return Math.sqrt(value1);
   }
 
