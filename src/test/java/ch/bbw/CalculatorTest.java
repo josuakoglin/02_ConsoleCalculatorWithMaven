@@ -149,7 +149,7 @@ public class CalculatorTest {
 
   @Test
   public void testSquarerootIsOK() {
-    assertTrue(testee.sqareroot(361) == 19);
+    assertTrue(testee.squareroot(361) == 19);
   }
 
 
